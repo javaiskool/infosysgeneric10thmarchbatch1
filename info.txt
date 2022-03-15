@@ -1,0 +1,17 @@
+array is a collection of similar data item
+arrays are objects
+array is also a reference data type in Java
+there is boundary checking in case of array
+array elements are initialized with default value
+
+once array is created , its size cant be changed
+
+there are two kinds of array-
+  single dimensional array and multi dimesnional array
+  
+  multidimensional array is also known as an array of array
+  
+  
+  
+  
+ 

@@ -1,0 +1,12 @@
+exercise 59
+select saleid,sldate from sale where sldate=(select max(sldate) from sale)
+================================================================================
+exercise 60
+select sname from salesman join sale on salesman.sid=sale.sid group by sname having count(saleid)>=2
+=================================================================================
+exercise 61
+select pr.prodid,pdesc  from product pr join saledetail sd on pr.prodid=sd.prodid group by pr.prodid,pdesc having sum(quantity)=(select min(sum(quantity)) from saledetail group by prodid) 
+====================================================================================
+exercise 62
+select y sid,nm sname,loc location from (select sm.sid y,sm.sname nm ,sm.location loc,((price-(price*(discount/100)))*sum(quantity))x from salesman sm, sale sl,saledetail sd,product p where ((sm.sid=sl.sid and sl.saleid=sd.saleid and sd.prodid =p.prodid)) group by sm.sid,sm.sname,sm.location,price,discount) group by y,nm,loc having sum(x)> (select avg(sa) from (select newsaleid,sum(saleamount) sa from (select saleid newsaleid,((price-(price*(discount/100)))*quantity) saleamount from product p join saledetail sd on sd.prodid=p.prodid group by saleid,price,discount,quantity) group by newsaleid))
+=====================================================================================
